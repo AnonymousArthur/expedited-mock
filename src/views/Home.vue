@@ -1,18 +1,26 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h3 v-if="loginStatus">Hello, {{ user && user.name }}!</h3>
+    <h3 v-else>Hello, Anonymous!</h3>
+    <router-link :to="{ name: 'DiscussionBoard' }">
+      查看讨论
+    </router-link>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import { mapState } from "vuex";
 
 export default {
   name: "Home",
-  components: {
-    HelloWorld
-  }
+  computed: {
+    ...mapState({
+      user: state => state.currentUser
+    }),
+    loginStatus() {
+      return !!this.user;
+    }
+  },
+  components: {}
 };
 </script>

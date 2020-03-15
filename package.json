@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
+    "dexie": "^2.0.4",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.2",
     "vue-property-decorator": "^8.3.0",
@@ -33,6 +34,7 @@
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.2",
     "typescript": "~3.7.5",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "vuex-module-decorators": "^0.16.1"
   }
 }
