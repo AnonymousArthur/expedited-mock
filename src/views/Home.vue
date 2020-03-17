@@ -2,14 +2,24 @@
   <div class="home">
     <h3 v-if="loginStatus">Hello, {{ user && user.name }}!</h3>
     <h3 v-else>Hello, Anonymous!</h3>
-    <router-link :to="{ name: 'DiscussionBoard' }">
-      查看讨论
-    </router-link>
+    <div>
+      <router-link :to="{ name: 'DiscussionBoard' }">
+        查看讨论
+      </router-link>
+    </div>
+    <div v-if="loginStatus">
+      <router-link :to="{ name: 'Admin' }">
+        用户管理
+      </router-link>
+    </div>
+    <div v-if="loginStatus">
+      <a href="#" @click="logout">退出登录</a>
+    </div>
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Home",
@@ -17,10 +27,10 @@ export default {
     ...mapState({
       user: state => state.currentUser
     }),
-    loginStatus() {
-      return !!this.user;
-    }
+    ...mapGetters(["loginStatus"])
   },
-  components: {}
+  methods: {
+    ...mapActions(["logout"])
+  }
 };
 </script>
