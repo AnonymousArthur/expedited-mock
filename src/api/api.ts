@@ -1,6 +1,8 @@
 import db from "./db";
 
+/* eslint-disable @typescript-eslint/no-empty-function */
 const api: any = function() {};
+/* eslint-enable */
 
 api.prototype.createUser = function(name: string) {
   return db.transaction("rw", db.users, function() {
@@ -42,10 +44,12 @@ api.prototype.getDiscussion = function(discussionId: number) {
 
 api.prototype.getDisucssionMessage = function(discussionId: number) {
   return db.transaction("r", db.messages, function() {
-    return db.messages.where({
-      parentId: discussionId,
-      parentType: "discussion"
-    }).toArray();
+    return db.messages
+      .where({
+        parentId: discussionId,
+        parentType: "discussion"
+      })
+      .toArray();
   });
 };
 

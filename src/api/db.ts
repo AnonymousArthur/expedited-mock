@@ -1,7 +1,7 @@
 import Dexie from "dexie";
 
 interface DBObject {
-  [key: string]: any
+  [key: string]: any;
 }
 
 const db: DBObject = new Dexie("myDb");

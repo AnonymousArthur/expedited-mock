@@ -22,17 +22,17 @@ const routes = [
   {
     path: "/admin",
     name: "Admin",
-    component: () => import("../views/Users.vue"),
+    component: () => import("../views/Users.vue")
   },
   {
     path: "/discussions",
     name: "DiscussionBoard",
-    component: () => import("../views/DiscussionBoard.vue"),
+    component: () => import("../views/DiscussionBoard.vue")
   },
   {
     path: "/discussions/:discussionId",
     name: "Discussion",
-    component: () => import("../views/Discussion.vue"),
+    component: () => import("../views/Discussion.vue")
   }
 ];
 

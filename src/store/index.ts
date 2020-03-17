@@ -1,3 +1,4 @@
+/* eslint-disable no-empty-pattern */
 import Vue from "vue";
 import Vuex from "vuex";
 import api from "../api/api";
